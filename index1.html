@@ -1,71 +1,87 @@
 <!DOCTYPE html>
 <html>
-<head> 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width_device-width,initial-scale-1.0">
-    <title>Refugio un nuevo mejor Amigo</title>
-    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Pacifico&display=swap" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="estilo.css">
+<head>
+	<title>Refugio un nuevo mejor amigo</title>
+
+	<style type="text/css">
+
+	 .calculos{
+	 	background: #804000;
+	 	color: #FFF0F5;
+	 	margin: 5px;
+	 	padding: 10px;
+	 	font-size: 20px;
+	 }
+	 h1{
+	 	text-align: center;
+	 	color: #804000;
+	 }
+	 .center {
+  		display: block;
+  		margin-left: auto;
+ 		margin-right: auto;
+  		width: 40%;
+}
+.menu a{
+        color: black;
+        display: block;
+        text-align: left;
+        padding: 10px;
+        margin: 0;
+        font-size: 20;
+    }
+body{
+	background-color: #FFF0F5;
+}
+
+	</style>
+
 </head>
 
-<body>	
-	  <header>
-       <nav>
- 		 <div class="logo">
-            <img src="icono.png" alt="logo">
-           
-        </div>
+<body>
   		<a class="btn">
             <span></span>
             <span></span>
             <span></span>
         </a>
-        <h1>REFUGIO UN NUEVO MEJOR AMIGO</h1>
-	<div class="menu">	
-	<a href="index.html">calculadora para calcular la edad de mi perrito</a>
-	<a href="index1.html">arreglando las suimas de vectores</a>
-	<a href="index23.html"> calculadora del perrito</a>
-	</div>	
- </nav>
-    </header>
-    <section>
-    	<h2>arreglando las suimas de vectores</h2>
+	<header>
+		<h1>Suma de vectores</h1>
+	</header>
+
+	<div class="menu">
+		<a href="index.html">inicio</a>
+	    <a href="index1.html">arreglando las suma de vectores</a>
+	    <a href="index23.html"> calculadora del perrito</a>
+
+	<div id="respuesta"></div>
+
+	<article>
 		
-		</section>
-<body>
-<script type="text/javascript">
+		<div class="calculos" id="salida"></div>
+
+
+	<script language="javascript">
+
+	var limite=parseInt(prompt('Ingrese la longitud del vector:'));
 	var vector1=[];
 	var vector2=[];
-	var suma=[];
-	var limite=parseInt(prompt('numero de valores:'));
-	var suma=limite;
-	for (var i=0; i<=limite; i++){
-		var valor1=parseInt(prompt("valor1:"));
-		var valor2=parseInt(prompt("valor2:"));
+	var vectsuma=[];
+	var suma=0;
+	for (var i=0;i<limite;i++){
+		var valor1=parseInt(prompt("valor "+i+" Del vector 1"))
+		var valor2=parseInt(prompt("valor "+i+" Del vector 2"))
 		vector1[i]=valor1;
 		vector2[i]=valor2;
-		suma[i]=vector1[i]+vector2[i];
-		
-	};
-	document.write("el vector 1 :"+vector1);
-	document.write("<br>el vector 2 :"+vector2);
-	document.write("<br>el vector suma es :"+suma);
+		vectsuma[i]=vector1[i]+vector2[i];
+	}
+	document.write("el vector 1 : "+ vector1)
+	document.write("<br>el vector 2 : "+ vector2)
+	document.getElementById("salida").innerHTML ="<br>el vector suma es : "+ vectsuma;
 
 </script>
-</body>
-<body>
-<p>HERROS QUE TENIA</p>
-	<p>1.- el problema constaba en poner en i<=limite </p>
-	<p>2.- tambien habi que cambiar el var suma=0; a var suma=limite</p>
-</body>
- <footer>
-    Derechos Reservados
-</footer>
-  <script type="text/javascript">
-        $(".btn").on("click", function(){
-            $('.menu').toggleClass("show");
-        });
-    </script>
-</body>
+<div class="calculos">
+	<article>El error se encontraba en la asignacion de variables, donde se utilizaba la variable "suma" 
+	como vector y a su vez como el numero 0 y al momento de mostrarlo, solo mostraba al numero 0</article>
+</div>
+</article>
 </html>

@@ -9,7 +9,7 @@ header {
     height: 10vh;
     margin: auto;
     align-items: center;
-    font-family: Lucida Handwriting;
+    font-family: verdana;
 }
 img{
 display:block;
@@ -53,7 +53,7 @@ section{
 }
 /* ESTILOS DE LA PAGINA EN GENERAL */
 p {
-    font-family: 'You owe me once', cursive;
+    font-family: 'verdana', cursive;
     padding: 20px;
     font-size: 18px;
     text-align: justify;
@@ -61,7 +61,7 @@ p {
     color: black;
 }
 h2 {
-    font-family: 'Lucida Handwriting', sans-serif;
+    font-family: 'verdana, sans-serif;
     margin: 15px 25px;
 }
 footer {

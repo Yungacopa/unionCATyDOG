@@ -2,117 +2,90 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title></title>
+
+
+	<style type="text/css">
+
+	 .calculos{
+	 	background: #804000;
+	 	color: #FFF0F5;
+	 	margin: 5px;
+	 	padding: 10px;
+	 	font-size: 20px;
+	 }
+	 h1{
+	 	text-align: center;
+	 	color: #804000;
+	 }
+	 .center {
+  		display: block;
+  		margin-left: auto;
+ 		margin-right: auto;
+  		width: 40%;
+}
+.menu a{
+        color: black;
+        display: block;
+        text-align: left;
+        padding: 10px;
+        margin: 0;
+        font-size: 20;
+    }
+    img{
+    display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px 20px;
+  opacity: .9;
+}
+body{
+	background-color: #FFF0F5;
+}
+p{
+
+	color: black;
+
+}
+</style>
+
 </head>
+
 <body>
-	<!-- IFRAME -->
-						<!-- calculadoras/animales/edad-perro--><div class="well well-large">
-	<form class="form-horizontal">
-		<div class="col-sm-12">
-			<p class="text-center">¿Cuántos años reales tiene tu perro?</p>
-		</div>
+	<header>
+		<h1>Calcula la edad de tu perro</h1>
+	</header>
+
+
+	<div class="menu">
+    <a href="index.html">inicio</a>
+	<a href="index1.html">arreglando las suma de vectores</a>
+	<a href="index23.html"> calculadora del perrito</a>
+	</div>	
+
+	<div id="respuesta"></div>
+	<a href="dalma.jpg" target="_blank"><img src="dalma.jpg"  style="width:30%;"></a>
+	<p>ROCKY BALBOA TIENE 1 AÑO DE VIDA, por el mito de su edad, tendria 7 años humanos, 
+	pero segun un estudio la manera de calcular su edad es otra, con este nuevo metodo tendria 31 años humanos</p>
+
+	<p>tienes la curiosidad cuantos años tiene tu mascota lo sabras pronto aqui ..</p>
+	<input type="text" id="numero"/>
+	<input type="button" value="calcular" onclick="edad()"/>
+	<article>
 		
-		<div class="form-group">
-			<label  class="col-sm-4 control-label">Mi perro se llama...</label>
-			<div class="col-sm-8">
-				<input type="text" size="20" maxlength="20" name="nombre" id="nombre" value="" class="form-control">
-			</div>
-		</div>
-		<div class="form-group">
-			<label class="col-sm-4 control-label">Y tiene...</label>
-			<div class="col-sm-4">
-				<div class="input-group">
-					<input type="number" name="anos" id="anos" value="1" min="0" class="form-control">
-					<div class="input-group-addon">años</div>
-				</div>
-			</div>
-			<div class="col-sm-4">
-				<div class="input-group">
-					<input type="number" name="meses" id="meses" value="0" min="0" class="form-control">
-					<div class="input-group-addon">meses</div>
-				</div>
-			</div>
-		</div>
-		<div class="form-group">
-			<div class="col-sm-12">
-				<button type="submit" onclick="calcula_edad(); return false;" class="btn btn-success btn-lg btn-block">Calcular</button>
-			</div>
-		</div>
-
-		<div class="form-group">
-			<div class="col-xs-12">
-				<div id="calcresult" class="alert alert-success hidden"></div>
-			</div>
-		</div>
-
-		<div class="form-group">
-			<div class="col-sm-12">
-								<a class="btn btn-info btn-block" target="_blank" href="http://www.mundoperro.net/esperanza-de-vida?utm_source=calcuworld.com&utm_medium=Network&utm_campaign=post_button">
-					¿Cuántos años vive un perro (según su raza)?				</a>
-				
-				<a rel:gt_label="Calcula la edad de tu perro"  class="btn btn-primary btn-block compartir_fb hidden" rel:gt_act="share/facebook" style="margin-top:10px;"  onclick="fb()" type="box_count" class="shareBtn big square">
-					<i class="glyphicon glyphicon-thumbs-up"></i>
-					Compartir resultado en Facebook				</a>
-			</div>
-		</div>
-	</form>
-</div>
-
-<script type="text/javascript">
-	var nombre;
-	var anos_finales;
-
-	function calcula_edad() {
-		var ano = document.querySelector('#anos').value*1.00;
-		
-		nombre = document.querySelector('#nombre').value;
-		var meses = document.querySelector('#meses').value;
-		var meses_calc = meses/12;
-		var total = ano + meses_calc;
-		var total2 = Math.pow(total,2);
-		anos_finales = ((-0.1291)*total2)+(7.2955*total)+6.4133;
-		anos_finales = Math.round(anos_finales*100)/100;
-		
-		// mostramos resultado
-		var str_resultado = "Tu perro {SP0} tiene {SP1} años humanos";
-
-		document.querySelector('#calcresult').innerHTML = str_resultado;
-		document.querySelector('#calcresult').innerHTML = str_resultado.format(nombre, anos_finales );
-		
-		// mostramos campos ocultos
-		document.querySelector('#calcresult').classList.remove('hidden');
-		document.querySelector(".compartir_fb").classList.remove('hidden');
-	}
-
-	function fb(){
-		var sTop=window.screen.height/2-(218);
-		var sLeft=window.screen.width/2-(313);
-		var str_fb_name = "Mi perro {SP0} tiene {SP1} años humanos.";
-		var str_fb_description = "He usado la calculadora de edad para perros y he averiguado que mi perro tiene {SP0} años humanos"
-	}
-
-	// Creamos una función para simular sprintf en javascript
-	String.prototype.format = function() {
-		var formatted = this;
-		for (var i = 0; i < arguments.length; i++) {
-			var regexp = new RegExp('\\{SP'+i+'\\}', 'gi');
-			formatted = formatted.replace(regexp, arguments[i]);
-		}
-		return formatted;
-	};
-
-</script>						
-						
-<div style="text-align: center; margin: 10px 0;"><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- CW_links -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-1879349339774425"
-     data-ad-slot="3624556348"
-     data-ad-format="link"></ins>
+	<div class="calculos" id="salida"></div>
 
 
-</body>
+	<script language="javascript">
+		function edad(){
+
+	var resp=parseInt(document.getElementById("numero").value);
+	var y= Math.log(resp);
+	
+	var x = 16*(y)+31;
+
+document.getElementById("salida").innerHTML ="su edad en años humanos es <br>"+Math.round(x)+" <br>(MITO) su edad en años humanos es <br>"+resp*7;
+}
+</script>
+</article>
 </html>
